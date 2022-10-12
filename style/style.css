@@ -1,0 +1,211 @@
+body {
+  background-color: #F9F5E3;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  font-family: "sofia pro";
+}
+
+.panels {
+  display: flex;
+}
+.panels .left {
+  background-color: rgb(21, 13, 53);
+  min-width: 300px;
+  height: 100vh;
+  position: fixed;
+  color: white;
+  box-sizing: border-box;
+}
+.panels .left .header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 20px;
+  box-sizing: border-box;
+  margin: 0;
+}
+.panels .left .header .header-heading {
+  border-bottom: 2px dashed white;
+  margin-bottom: 50px;
+  text-align: left;
+  padding: 20px 30px;
+}
+.panels .left .header .dodaj {
+  padding: 20px;
+  background-color: #FF0054;
+  transition: border-radius 200ms ease;
+  margin-bottom: 20px;
+}
+.panels .left .header .dodaj a {
+  color: white;
+}
+.panels .left .header .dodaj:hover {
+  border-radius: 20px;
+  cursor: pointer;
+}
+.panels .left .header .navigation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-around;
+}
+.panels .left .header .navigation .nav-link {
+  margin-top: 20px;
+  color: white;
+}
+.panels .left .header .navigation .nav-link .nav-box {
+  display: flex;
+  align-items: center;
+}
+.panels .left .header .navigation .nav-link .nav-box .nav-box__icon {
+  margin-right: 20px;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  height: 50px;
+  transition: background-color 100ms ease;
+  width: 25%;
+}
+.panels .left .header .navigation .nav-link:hover .nav-box__icon {
+  background-color: #FF0054;
+}
+.panels .right {
+  margin-left: 300px;
+  z-index: 20;
+  overflow: hidden;
+  width: 100vw;
+}
+.panels .right .header {
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  background-color: #FF0054;
+}
+.panels .right .header h1 {
+  margin: 0;
+}
+.panels .right section {
+  padding: 20px;
+}
+.panels .right .loguj {
+  color: black;
+  text-decoration: none;
+}
+.panels .right .loguj .loguj__container {
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: #F9F5E3;
+  transition: background-color 100ms ease-in-out, color ease-in-out 100ms, transform 100ms ease-in-out;
+}
+.panels .right .loguj .loguj__container:hover {
+  background-color: #150d35;
+  color: white;
+  transform: scale(1.1, 1.1);
+}
+.panels .right .profile {
+  position: relative;
+}
+.panels .right .profile img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  transition: transform 100ms ease;
+}
+.panels .right .profile img:hover {
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+.panels .right .profile .miniprofile {
+  visibility: hidden;
+  width: 160px;
+  height: 260px;
+  box-sizing: border-box;
+  padding: 10px;
+  position: absolute;
+  background-color: #150d35;
+  top: -10px;
+  right: 0;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.panels .right .profile .miniprofile img {
+  margin-bottom: 30px;
+}
+.panels .right .profile .miniprofile a {
+  width: 120px;
+  border-radius: 20px;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px;
+  background-color: #FF0054;
+  display: block;
+  margin-bottom: 20px;
+  color: white;
+  transition: background-color 100ms ease, color 100ms ease;
+}
+.panels .right .profile .miniprofile a:hover {
+  background-color: #150d35;
+  color: #FF0054;
+  outline: 2px solid #FF0054;
+}
+
+.profilemove {
+  -webkit-animation: profmove 400ms ease both;
+          animation: profmove 400ms ease both;
+}
+
+.visible {
+  visibility: visible !important;
+  -webkit-animation: show 400ms ease both;
+          animation: show 400ms ease both;
+}
+
+.profilemoveback {
+  animation: reverse profmove 400ms ease both;
+}
+
+.invisible {
+  animation: reverse show 400ms ease both;
+}
+
+@-webkit-keyframes show {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 80%;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 80%;
+  }
+}
+@-webkit-keyframes profmove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-58px);
+  }
+}
+@keyframes profmove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-58px);
+  }
+}/*# sourceMappingURL=style.css.map */
