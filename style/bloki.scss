@@ -1,0 +1,44 @@
+.glosowanie
+{
+    display: flex;
+    justify-content: center;
+}
+.request-link
+{
+    margin-top: 20px;
+    width: 50vw;
+    .request
+    {
+        background-color: rgb(21, 13, 53);
+        border: 5px dashed #FF0054;
+        padding: 15px;
+        color: white;
+        margin: 10px;
+        border-radius: 10px;
+        .reuqest-title
+        {
+            display: flex;
+            align-items: center;
+    
+            .profile-img
+            {
+                margin-right: 20px;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+            }
+        }
+        .request-bottom
+        {
+            display: flex;
+            justify-content: space-between;
+        }
+    
+        transition: background-color 100ms ease;
+        &:hover
+        {
+            cursor: pointer;
+            background-color: #490018;
+        }    
+    }
+}

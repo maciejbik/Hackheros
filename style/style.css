@@ -75,11 +75,13 @@ body {
 .panels .right {
   margin-left: 300px;
   z-index: 20;
-  overflow: hidden;
   width: 100vw;
+  overflow: hidden;
+  height: 100vh;
 }
 .panels .right .header {
   display: flex;
+  z-index: 10;
   height: 50px;
   justify-content: space-between;
   align-items: center;
@@ -122,6 +124,7 @@ body {
   cursor: pointer;
 }
 .panels .right .profile .miniprofile {
+  z-index: 20;
   visibility: hidden;
   opacity: 0%;
   transition: 200ms;
@@ -157,6 +160,11 @@ body {
   background-color: #150d35;
   color: #FF0054;
   outline: 2px solid #FF0054;
+}
+.panels .right .main {
+  width: 100%;
+  -webkit-animation: floatto 700ms ease;
+          animation: floatto 700ms ease;
 }
 
 .visible {

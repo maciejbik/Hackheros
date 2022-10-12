@@ -36,7 +36,7 @@
         <!-- RIGHT -->
         <div class="right">
             <div class="header">
-                <h1>Witaj na stronie</h1>
+                <h1>Najnowsze</h1>
                 <div class="konto">
                     <!-- Jeśli nie zalogowany -->
                     <!-- <a href="loguj.php" class="loguj">
@@ -57,27 +57,53 @@
                 </div>
             </div>
             <div class="main">
-                <section>
-                    <h2>Sekcja</h2>
-                    <article>
-                        <h3>Artykuł</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum incidunt, molestias quidem quaerat illum maiores dignissimos, cupiditate id maxime labore necessitatibus voluptas, saepe minus fuga? Nam aliquid dignissimos expedita dolor?</p>
-                    </article>
-                </section>
-                <section>
-                    <h2>Sekcja</h2>
-                    <article>
-                        <h3>Artykuł</h3>
-                        <p>Asperiores ad hic corrupti distinctio quos aliquam a, rerum odio consequuntur mollitia nesciunt eaque amet perferendis totam consequatur sit voluptas perspiciatis eos fugit omnis quibusdam natus ratione ipsum! Quia, illo.</p>
-                    </article>
-                </section>
-                <section>
-                    <h2>Sekcja</h2>
-                    <article>
-                        <h3>Artykuł</h3>
-                        <p>Placeat eveniet expedita reiciendis alias sunt, temporibus sapiente facere voluptas harum provident illum saepe iure culpa quisquam ea, doloribus iusto dolor repellendus dolorem voluptate dolores magni nisi nihil a! Eligendi!</p>
-                    </article>
-                </section>
+                <div class="glosowanie">
+                                <div class="request-link">
+
+                <?php
+                // <div class="request">
+                //     <div class="reuqest-title">
+                //         <img src="img/anonym.png" alt="Profile img" class="profile-img">
+                //         <p>Użytkownik</p>
+                //     </div>
+                //     <h2>Tytuł</h2>
+                //     <p class="opis">Ea neque officiis possimus dolore magnam minus labore iusto. Expedita soluta recusandae iure voluptas dolore rem, quam esse reprehenderit hic ipsum qui eos sint deserunt, sunt perspiciatis error aliquid non?</p>
+                //     <div class="request-bottom">
+                //         <p class="data">##-##-####</p>
+                //         <p class="like">0</p>
+                //     </div>
+                // </div>
+                $con = mysqli_connect('localhost','root','','glosowania');
+                
+                if($zapytanie = mysqli_query($con,"SELECT * FROM glos JOIN uzytkownik ON uzytkownik.id_uzyt=glos.id_uzyt ORDER BY dodanie DESC"))
+                {
+                    while($wynik = mysqli_fetch_assoc($zapytanie))
+                    {
+                        if($wynik["prof_img"]==null)
+                        {
+                            $wynik["prof_img"]="anonym.png";
+                        }
+
+                        echo "<div class='request'>";
+                        echo "  <div class='reuqest-title'>";
+                        echo "      <img src='img/".$wynik["prof_img"]."' alt='Profile img' class='profile-img'>";
+                        echo "      <p>".$wynik["nick"]."</p>";
+                        echo "  </div>";
+                        echo "  <h2>".$wynik["temat"]."</h2>";
+                        echo "  <p class='opis'>".$wynik["opis"]."</p>";
+                        echo "  <div class='request-bottom'>";
+                        echo "      <p class='data'>".$wynik["dodanie"]."</p>";
+                        echo "      <p class='like'>".$wynik["polubienia"]."</p>";
+                        echo "  </div>";
+                        echo "</div>";
+                    }
+                }
+                else
+                {
+                    echo "Brak danych";
+                }
+                ?>
+                </div>
             </div>
         </div>
     </div>

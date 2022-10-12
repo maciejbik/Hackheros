@@ -1,0 +1,36 @@
+.glosowanie {
+  display: flex;
+  justify-content: center;
+}
+
+.request-link {
+  margin-top: 20px;
+  width: 50vw;
+}
+.request-link .request {
+  background-color: rgb(21, 13, 53);
+  border: 5px dashed #FF0054;
+  padding: 15px;
+  color: white;
+  margin: 10px;
+  border-radius: 10px;
+  transition: background-color 100ms ease;
+}
+.request-link .request .reuqest-title {
+  display: flex;
+  align-items: center;
+}
+.request-link .request .reuqest-title .profile-img {
+  margin-right: 20px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.request-link .request .request-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.request-link .request:hover {
+  cursor: pointer;
+  background-color: #490018;
+}/*# sourceMappingURL=bloki.css.map */

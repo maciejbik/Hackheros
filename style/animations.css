@@ -1,0 +1,13 @@
+@keyframes floatto{
+    from
+    {
+        opacity: 0%;
+        transform: translateX(100px);
+    }
+    to
+    {
+        opacity: 100%;
+        transform: translateX(0);
+        
+    }
+}
