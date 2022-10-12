@@ -115,14 +115,16 @@ body {
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  transition: 200ms;
   transition: transform 100ms ease;
 }
 .panels .right .profile img:hover {
   cursor: pointer;
-  transform: scale(1.1, 1.1);
 }
 .panels .right .profile .miniprofile {
   visibility: hidden;
+  opacity: 0%;
+  transition: 200ms;
   width: 160px;
   height: 260px;
   box-sizing: border-box;
@@ -157,55 +159,12 @@ body {
   outline: 2px solid #FF0054;
 }
 
-.profilemove {
-  -webkit-animation: profmove 400ms ease both;
-          animation: profmove 400ms ease both;
-}
-
 .visible {
   visibility: visible !important;
-  -webkit-animation: show 400ms ease both;
-          animation: show 400ms ease both;
+  opacity: 100% !important;
 }
 
-.profilemoveback {
-  animation: reverse profmove 400ms ease both;
-}
-
-.invisible {
-  animation: reverse show 400ms ease both;
-}
-
-@-webkit-keyframes show {
-  from {
-    opacity: 0%;
-  }
-  to {
-    opacity: 80%;
-  }
-}
-
-@keyframes show {
-  from {
-    opacity: 0%;
-  }
-  to {
-    opacity: 80%;
-  }
-}
-@-webkit-keyframes profmove {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-58px);
-  }
-}
-@keyframes profmove {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-58px);
-  }
+.moved {
+  transform: translateX(-58px);
+  cursor: inherit;
 }/*# sourceMappingURL=style.css.map */

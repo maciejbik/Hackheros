@@ -40,11 +40,12 @@
                     <!-- <a href="loguj.php" class="loguj">
                         <div class="loguj__container">Zaloguj się</div>
                     </a> -->
+
                     <!-- Jeśli zalogowany -->
                     <div class="profile">
                         <img onclick="miniprofile()" src="img/profile.png" alt="">
-                        <div class="miniprofile">
-                            <img onclick="miniprofile()" src="img/profile.png" alt="">
+                        <div class="miniprofile" onclick="miniprofile()">
+                            <img src="img/profile.png" alt="">
                             <a href="profil.php">Sprawdz profil</a>
                             <a href="polubione.php">Polubione</a>
                             <a href="php/wyloguj.php">Wyloguj się</a>

@@ -146,16 +146,18 @@ body
                 width: 45px;
                 height: 45px;
                 border-radius: 50%;
+                transition: 200ms;
                 transition: transform 100ms ease;
                 &:hover
                 {
                     cursor: pointer;
-                    transform: scale(1.1,1.1);
                 }
             }
             .miniprofile
             {
                 visibility: hidden;
+                opacity: 0%;
+                transition: 200ms;
                 width: 160px;
                 height: 260px;
                 box-sizing: border-box;
@@ -197,41 +199,13 @@ body
 }
 
 
-.profilemove
-{
-    animation: profmove 400ms ease both;
-}
 .visible
 {
-    visibility:visible !important;
-    animation: show 400ms ease both;
+    visibility: visible !important;
+    opacity: 100% !important;
 }
-.profilemoveback
+.moved
 {
-    animation: reverse profmove 400ms ease both;
-}
-.invisible
-{
-    animation: reverse show 400ms ease both;
-}
-
-@keyframes show {
-    from
-    {
-        opacity: 0%;
-    }
-    to
-    {
-        opacity: 80%;
-    }
-}
-@keyframes profmove {
-    from
-    {
-        transform: translateX(0);
-    }
-    to
-    {
-        transform: translateX(-58px);
-    }
+    transform: translateX(-58px);
+    cursor:inherit;
 }
