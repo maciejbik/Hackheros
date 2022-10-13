@@ -15,7 +15,7 @@ session_start();
     <link rel="stylesheet" href="style/animations.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/bloki.css">
-    <link rel="stylesheet" href="style/logowanie.css">
+    <link rel="stylesheet" href="style/rejestracja.css">
     <script defer src="js/miniprofile.js"></script>
 </head>
 <body>
@@ -68,14 +68,28 @@ session_start();
                 <section class="rejestracja">
                     <div class="rejestracja-content">
                         <h2>Zarejestruj się</h2>
-                        <form method="POST" action="php/zaloguj.php">
+                        <form method="POST" action="php/zarejestruj.php">
                             <label>
-                                Login: <input minlength=1 required type="text" name="login">
-                            </label><br>
+                                E-mail: <input minlength=1 required type="text" name="login">
+                            </label>
                             <label>
                                 Hasło: <input minlength=1 required type="password" name="haslo">
-                            </label><br>
-                            <button type="submit">Zaloguj się</button>
+                            </label>
+                            <label>
+                                Profilowe: <input type="file" name="prof">
+                            </label>
+                            <label>
+                                Nick: <input minlength=1 type="text" name="nick">
+                            </label>
+                            <br>
+                            <button type="submit">Zarejestruj się</button>
+                            <?php
+                            if(isset($_SESSION["user-error"]))
+                            {
+                                echo "<p class='error'>".$_SESSION["user-error"]."</p>";
+                                unset($_SESSION["user-error"]);
+                            }
+                            ?>
                         </form>
                         <br>
                         <div class="rejestracja-link">Masz już konto? <br> <a href="loguj.php">Zaloguj się!</a></div>

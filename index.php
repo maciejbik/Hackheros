@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -17,7 +20,7 @@
         <!-- LEFT -->
         <div class="left">
             <div class="header">
-                <h1 class="header-heading"><img src="img/rect7168.png" alt=""></h1>
+                <h1 class="header-heading"><img src="img/rect7168.png" alt="Logo strony"></h1>
                 <div class="dodaj"><a href="dodaj.php">Dodaj swój wpis</a></div>
                 <nav class="navigation">
                     <a href="index.php" class="nav-link">
@@ -39,10 +42,33 @@
             <div class="header">
                 <h1>Witaj na stronie</h1>
                 <div class="konto">
+
+                    <?php
+                    if(isset($_SESSION["zalogowany"]))
+                    {
+                        echo "<!-- Jeśli zalogowany -->";
+                        echo "<div class='profile'>";
+                        echo "    <img onclick='miniprofile()' src='".$_SESSION["prof_img"]."' alt='Profilowe zdjecie'>";
+                        echo "    <div class='miniprofile' onclick='miniprofile()'>";
+                        echo "        <span>".$_SESSION["nick"]."</span>";
+                        echo "        <img src='img/anonym.png' alt='Profilowe zdjecie'>";
+                        echo "        <a href='profil.php'>Sprawdz profil</a>";
+                        echo "        <a href='polubione.php'>Polubione</a>";
+                        echo "        <a href='php/wyloguj.php'>Wyloguj się</a>";
+                        echo "    </div>";
+                        echo "</div>";
+                    }
+                    else
+                    {
+                        echo "<a href='loguj.php' class='loguj'>";
+                        echo "<div class='loguj__container'>Zaloguj się</div>";
+                        echo "</a>";
+                    }
+                    ?>
                     <!-- Jeśli nie zalogowany -->
-                    <a href="loguj.php" class="loguj">
+                    <!-- <a href="loguj.php" class="loguj">
                         <div class="loguj__container">Zaloguj się</div>
-                    </a>
+                    </a> -->
 
                     <!-- Jeśli zalogowany -->
                     <!-- <div class="profile">

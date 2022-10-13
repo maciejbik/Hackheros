@@ -1,1 +1,97 @@
-/*# sourceMappingURL=rejestracja.css.map */
+.main .rejestracja {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .rejestracja .rejestracja-content {
+  width: 800px;
+  height: 700px;
+  padding: 20px;
+  border-radius: 40px;
+  background-image: linear-gradient(white, white), repeating-linear-gradient(45deg, #FF0054 0% 10%, #150d35 10% 20%);
+  -webkit-animation: border-rot 20s linear infinite alternate;
+          animation: border-rot 20s linear infinite alternate;
+  background-size: 200%;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  display: grid;
+  grid-template-areas: "header header" "register login" "register login";
+  font-size: 160%;
+  grid-template-rows: 25% 75%;
+}
+.main .rejestracja .rejestracja-content h2 {
+  text-align: center;
+  align-content: center;
+  line-height: 150px;
+  background-color: #FF0054;
+  border-radius: 18px 18px 0 0;
+  color: white;
+  border-bottom: 4px dashed #150d35;
+  grid-area: header;
+  margin: 0;
+  padding: 10px;
+}
+.main .rejestracja .rejestracja-content form {
+  padding: 10px;
+  grid-area: register;
+  width: 90%;
+}
+.main .rejestracja .rejestracja-content form label, .main .rejestracja .rejestracja-content form input {
+  display: block;
+}
+.main .rejestracja .rejestracja-content form label {
+  color: #FF0054;
+}
+.main .rejestracja .rejestracja-content form input {
+  margin: 5px;
+  font-size: 20px;
+  height: 40px;
+}
+.main .rejestracja .rejestracja-content form button {
+  background-color: #FF0054;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.main .rejestracja .rejestracja-content form button:hover {
+  background-color: #150d35;
+  color: white;
+  cursor: pointer;
+}
+.main .rejestracja .error {
+  color: #150d35;
+}
+.main .rejestracja .rejestracja-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-area: login;
+  background-color: #150d35;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+}
+.main .rejestracja .rejestracja-link a {
+  color: #FF0054;
+}
+
+@-webkit-keyframes border-rot {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}
+
+@keyframes border-rot {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}/*# sourceMappingURL=rejestracja.css.map */
