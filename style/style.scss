@@ -14,8 +14,8 @@ body
     // LEFT
     .left
     {
-        background-color: rgb(21, 13, 53);
-        min-width: 300px;
+        background-color: #150d35;
+        width: 300px;
         height: 100vh;
         position: fixed;
         color: white;
@@ -30,6 +30,17 @@ body
             margin: 0;
             .header-heading
             {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img
+                {
+                    width: 100%;
+                    position: relative;
+                    top: -15px;
+                    left: -15px;
+                }
+
                 border-bottom: 2px dashed white;
                 margin-bottom: 50px;
                 text-align: left;

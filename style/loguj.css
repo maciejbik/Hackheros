@@ -1,0 +1,80 @@
+.main .logowanie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .logowanie .logowanie-content {
+  width: 500px;
+  height: 700px;
+  padding: 20px;
+  border-radius: 40px;
+  background-image: linear-gradient(white, white), repeating-linear-gradient(45deg, #FF0054 0% 10%, #150d35 10% 20%);
+  -webkit-animation: border-rot 40s ease infinite alternate;
+          animation: border-rot 40s ease infinite alternate;
+  background-size: 200%;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 160%;
+}
+.main .logowanie .logowanie-content form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .logowanie .logowanie-content form label, .main .logowanie .logowanie-content form input {
+  display: block;
+}
+.main .logowanie .logowanie-content form label {
+  text-align: center;
+  color: #FF0054;
+}
+.main .logowanie .logowanie-content form input {
+  margin: 10px;
+  font-size: 20px;
+  height: 40px;
+}
+.main .logowanie .logowanie-content form button {
+  background-color: #FF0054;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.main .logowanie .logowanie-content form button:hover {
+  background-color: #150d35;
+  color: white;
+  cursor: pointer;
+}
+.main .logowanie .error {
+  color: #150d35;
+}
+.main .logowanie .rejestracja-link {
+  text-align: center;
+  font-size: 20px;
+}
+.main .logowanie .rejestracja-link a {
+  color: #FF0054;
+}
+
+@-webkit-keyframes border-rot {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}
+
+@keyframes border-rot {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}/*# sourceMappingURL=loguj.css.map */

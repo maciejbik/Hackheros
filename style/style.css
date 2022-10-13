@@ -10,8 +10,8 @@ body {
   display: flex;
 }
 .panels .left {
-  background-color: rgb(21, 13, 53);
-  min-width: 300px;
+  background-color: #150d35;
+  width: 300px;
   height: 100vh;
   position: fixed;
   color: white;
@@ -26,10 +26,19 @@ body {
   margin: 0;
 }
 .panels .left .header .header-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-bottom: 2px dashed white;
   margin-bottom: 50px;
   text-align: left;
   padding: 20px 30px;
+}
+.panels .left .header .header-heading img {
+  width: 100%;
+  position: relative;
+  top: -15px;
+  left: -15px;
 }
 .panels .left .header .dodaj {
   padding: 20px;
