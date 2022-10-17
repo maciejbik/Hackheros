@@ -86,13 +86,13 @@ session_start();
                                 }
                                 echo "<div class='request'>";
                                 echo "  <div class='reuqest-title'>";
-                                echo "      <img src='img/" . $wynik["prof_img"] . "' alt='Profile img' class='profile-img'>";
+                                echo "      <img src='".$wynik["prof_img"]."' alt='Profile img' onerror=`this.src='img/anonym.png'` class='profile-img'>";
                                 echo "      <p>" . $wynik["nick"] . "</p>";
                                 echo "  </div>";
                                 echo "  <h2>" . $wynik["temat"] . "</h2>";
                                 echo "  <p class='opis'>" . $wynik["opis"] . "</p>";
                                 echo "  <div class='request-bottom'>";
-                                echo "      <p class='data'>" . $wynik["dodanie"] . "</p>";
+                                echo "      <p class='data'>" . $wynik["data_dodania"] . "</p>";
                                 echo "      <p class='like'>" . $wynik["polubienia"] . "</p>";
                                 echo "  </div>";
                                 echo "</div>";
