@@ -46,14 +46,14 @@ body
                 text-align: left;
                 padding: 20px 30px;
             }
+            .dodaj-link
+            {
+                color: white;
+            }
             .dodaj
             {
                 padding: 20px;
                 background-color: #FF0054;
-                a
-                {
-                    color: white;
-                }
                 transition: border-radius 200ms ease;
                 &:hover
                 {
@@ -230,4 +230,46 @@ body
 {
     transform: translateX(-58px);
     cursor:inherit;
+}
+
+
+.main
+{
+    .profil
+    {
+        display: flex;
+        justify-content: center;
+        .profil-content
+        {
+            background-image: linear-gradient(white,white),
+            repeating-linear-gradient(45deg,#150d35 0% 10%,#FF0054 10% 20%);
+            background-clip: content-box,border-box;
+            background-size: 300%;
+            animation: border-rot 20s linear alternate infinite;
+            padding: 15px;
+            border-radius: 10px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            form
+            {
+                background-color: #150d35;
+                border-radius: 10px;
+                color: white;
+                margin: 10px;
+                padding: 20px;
+            }
+            h2
+            {
+                text-align: center;
+            }
+            img
+            {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+            }
+        }
+    }
 }

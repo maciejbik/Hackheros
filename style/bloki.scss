@@ -1,44 +1,68 @@
-.glosowanie
-{
+.glosowanie {
     display: flex;
     justify-content: center;
 }
-.request-link
-{
+
+.request-link {
     margin-top: 20px;
     width: 50vw;
-    .request
-    {
+
+    h2 {
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .request {
         background-color: rgb(21, 13, 53);
         border: 5px dashed #FF0054;
         padding: 15px;
         color: white;
         margin: 10px;
         border-radius: 10px;
-        .reuqest-title
-        {
+
+        .reuqest-title {
             display: flex;
             align-items: center;
-    
-            .profile-img
-            {
+
+            .profile-img {
                 margin-right: 20px;
                 border-radius: 50%;
                 width: 40px;
                 height: 40px;
             }
         }
-        .request-bottom
-        {
+
+        .request-bottom {
             display: flex;
             justify-content: space-between;
         }
-    
+
         transition: background-color 100ms ease;
-        &:hover
-        {
+
+        &:hover {
             cursor: pointer;
             background-color: #490018;
-        }    
+        }
+    }
+
+    .dodaj-link {
+        color: white;
+        text-decoration: none;
+    }
+
+    .dodaj {
+        text-align: center;
+        font-size: 40px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #FF0054;
+        transition: border-radius 200ms ease, background-color 200ms ease;
+        &:hover {
+            border-radius: 20px;
+            background-color: #ba0340;
+            cursor: pointer;
+        }
+
+        margin-bottom: 20px;
     }
 }

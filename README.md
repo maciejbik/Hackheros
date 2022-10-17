@@ -20,6 +20,7 @@ Strony:
 - Dodać komentarze do postów
 - Dodać podstrony do poszczególnych postów
 - Dodac opcje załadowania więcej aby usprawnić prędkośc ładowania
+- Dodac funkcje hashującą hasła sha1
 
 
 

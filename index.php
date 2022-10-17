@@ -21,7 +21,7 @@ session_start();
         <div class="left">
             <div class="header">
                 <h1 class="header-heading"><img src="img/rect7168.png" alt="Logo strony"></h1>
-                <div class="dodaj"><a href="dodaj.php">Dodaj swój wpis</a></div>
+                <a href="dodaj.php" class="dodaj-link"><div class="dodaj">Dodaj swój wpis</div></a>
                 <nav class="navigation">
                     <a href="index.php" class="nav-link">
                         <div class="nav-box">
@@ -51,7 +51,7 @@ session_start();
                         echo "    <img onclick='miniprofile()' src='".$_SESSION["prof_img"]."' alt='Profilowe zdjecie'>";
                         echo "    <div class='miniprofile' onclick='miniprofile()'>";
                         echo "        <span>".$_SESSION["nick"]."</span>";
-                        echo "        <img src='img/anonym.png' alt='Profilowe zdjecie'>";
+                        echo "        <img src='".$_SESSION["prof_img"]."' alt='Profilowe zdjecie'>";
                         echo "        <a href='profil.php'>Sprawdz profil</a>";
                         echo "        <a href='polubione.php'>Polubione</a>";
                         echo "        <a href='php/wyloguj.php'>Wyloguj się</a>";

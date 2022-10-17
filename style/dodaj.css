@@ -1,9 +1,9 @@
-.main .rejestracja {
+.main .dodaj {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.main .rejestracja .rejestracja-content {
+.main .dodaj .dodaj-content {
   width: 800px;
   height: 100%;
   padding: 20px;
@@ -15,14 +15,12 @@
   background-origin: border-box;
   background-clip: content-box, border-box;
   display: grid;
-  grid-template-areas: "header header" "register login" "register login";
+  grid-template-areas: "header header" "opis opis";
   font-size: 160%;
-  grid-template-rows: 25% 75%;
 }
-.main .rejestracja .rejestracja-content h2 {
+.main .dodaj .dodaj-content .h2-content {
   text-align: center;
   align-content: center;
-  line-height: 130px;
   background-color: #FF0054;
   border-radius: 18px 18px 0 0;
   color: white;
@@ -30,23 +28,23 @@
   grid-area: header;
   margin: 0;
 }
-.main .rejestracja .rejestracja-content form {
+.main .dodaj .dodaj-content form {
   padding: 10px;
-  grid-area: register;
-  width: 90%;
+  width: inherit;
+  box-sizing: border-box;
 }
-.main .rejestracja .rejestracja-content form label, .main .rejestracja .rejestracja-content form input {
+.main .dodaj .dodaj-content form label, .main .dodaj .dodaj-content form input {
   display: block;
 }
-.main .rejestracja .rejestracja-content form label {
+.main .dodaj .dodaj-content form label {
   color: #FF0054;
 }
-.main .rejestracja .rejestracja-content form input {
+.main .dodaj .dodaj-content form input {
   margin: 5px;
   font-size: 20px;
   height: 40px;
 }
-.main .rejestracja .rejestracja-content form button {
+.main .dodaj .dodaj-content form button {
   background-color: #FF0054;
   color: white;
   border: none;
@@ -54,30 +52,17 @@
   font-size: 20px;
   transition: background-color 120ms ease, color 120ms ease;
 }
-.main .rejestracja .rejestracja-content form button:hover {
+.main .dodaj .dodaj-content form button:hover {
   background-color: #150d35;
   color: white;
   cursor: pointer;
 }
-.main .rejestracja .error {
-  color: #150d35;
-}
-.main .rejestracja .rejestracja-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  grid-area: login;
-  background-color: #150d35;
-  color: white;
-  text-align: center;
+.main .dodaj textarea {
   font-size: 20px;
-}
-.main .rejestracja .rejestracja-link a {
-  color: #FF0054;
-}
-.main .rejestracja textarea {
+  font-weight: lighter;
   min-height: 100px;
+  max-height: 770px;
+  width: 100%;
 }
 
 @-webkit-keyframes border-rot {
@@ -96,4 +81,4 @@
   to {
     background-position: right;
   }
-}/*# sourceMappingURL=rejestracja.css.map */
+}/*# sourceMappingURL=dodaj.css.map */

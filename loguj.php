@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+if(isset($_SESSION["login"]))
+{
+    header("Location: index.php");
+}
 ?>
 
 
@@ -24,8 +27,8 @@ session_start();
         <!-- LEFT -->
         <div class="left">
             <div class="header">
-                <h1 class="header-heading">Strona <br> główna <i class="fab fa-42-group"></i></h1>
-                <div class="dodaj"><a href="dodaj.php">Dodaj swój wpis</a></div>
+                <h1 class="header-heading"><img src="img/rect7168.png" alt="Logo strony"></h1>
+                <a href="dodaj.php" class="dodaj-link"><div class="dodaj">Dodaj swój wpis</div></a>
                 <nav class="navigation">
                     <a href="index.php" class="nav-link">
                         <div class="nav-box">
@@ -45,23 +48,6 @@ session_start();
         <div class="right">
             <div class="header">
                 <h1>Strona Logowania</h1>
-                <div class="konto">
-                    <!-- Jeśli nie zalogowany -->
-                    <!-- <a href="loguj.php" class="loguj">
-                        <div class="loguj__container">Zaloguj się</div>
-                    </a> -->
-
-                    <!-- Jeśli zalogowany -->
-                    <!-- <div class="profile">
-                        <img onclick="miniprofile()" src="img/anonym.png" alt="">
-                        <div class="miniprofile" onclick="miniprofile()">
-                            <img src="img/anonym.png" alt="">
-                            <a href="profil.php">Sprawdz profil</a>
-                            <a href="polubione.php">Polubione</a>
-                            <a href="php/wyloguj.php">Wyloguj się</a>
-                        </div>
-                    </div> -->
-                </div>
             </div>
             
             <div class="main">
@@ -73,7 +59,7 @@ session_start();
                                 Login: <input minlength=1 required type="text" name="login">
                             </label><br>
                             <label>
-                                Hasło: <input minlength=1 required type="password" name="haslo">
+                                Hasło: <input minlength=1 required type="text" name="haslo">
                             </label><br>
                             <button type="submit">Zaloguj się</button>
                         </form>

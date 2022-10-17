@@ -1,6 +1,8 @@
 <?php
 session_start();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -11,6 +13,7 @@ session_start();
     <title>Document</title>
     <link rel="stylesheet" href="style/scroller.css">
     <link rel="stylesheet" href="style/animations.css">
+    <link rel="stylesheet" href="style/loguj.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/bloki.css">
     <script defer src="js/miniprofile.js"></script>
@@ -69,47 +72,64 @@ session_start();
                         echo "</a>";
                     }
                     ?>
+                    <!-- Jeśli nie zalogowany -->
+                    <!-- <a href="loguj.php" class="loguj">
+                        <div class="loguj__container">Zaloguj się</div>
+                    </a> -->
+
+                    <!-- Jeśli zalogowany -->
+                    <!-- <div class="profile">
+                        <img onclick="miniprofile()" src="img/anonym.png" alt="">
+                        <div class="miniprofile" onclick="miniprofile()">
+                            <img src="img/anonym.png" alt="">
+                            <a href="profil.php">Sprawdz profil</a>
+                            <a href="polubione.php">Polubione</a>
+                            <a href="php/wyloguj.php">Wyloguj się</a>
+                        </div>
+                    </div> -->
+
                 </div>
             </div>
+
             <div class="main">
-                <div class="glosowanie">
-                    <div class="request-link">
-
+                <section class="profil">
+                    <div class="profil-content">
+                        <h2>Witaj <?php echo $_SESSION["nick"] ?>!</h2>
                         <?php
-                        $con = mysqli_connect('localhost', 'root', '', 'glosowanie');
-                        $zapytanie = mysqli_query($con, "SELECT * FROM glosy JOIN uzytkownicy ON uzytkownicy.id=glosy.id_uzyt ORDER BY polubienia DESC");
-                        $fetch = 0;
-                        if($zapytanie) {
-                            while ($wynik = mysqli_fetch_assoc($zapytanie)) {
-                                if ($wynik["prof_img"] == null) {
-                                    $wynik["prof_img"] = "anonym.png";
-                                }
-                                echo "<div class='request'>";
-                                echo "  <div class='reuqest-title'>";
-                                echo "      <img src='img/" . $wynik["prof_img"] . "' alt='Profile img' class='profile-img'>";
-                                echo "      <p>" . $wynik["nick"] . "</p>";
-                                echo "  </div>";
-                                echo "  <h2>" . $wynik["temat"] . "</h2>";
-                                echo "  <p class='opis'>" . $wynik["opis"] . "</p>";
-                                echo "  <div class='request-bottom'>";
-                                echo "      <p class='data'>" . $wynik["dodanie"] . "</p>";
-                                echo "      <p class='like'>" . $wynik["polubienia"] . "</p>";
-                                echo "  </div>";
-                                echo "</div>";
-                                $fetch=1;
-                            }
+                        echo "<img src='" . $_SESSION["prof_img"] . "' alt='zdjecie profilowe' />";
+                        ?>
+                        <h3>Informacje o koncie</h3>
+                        <?php
+                        $con = mysqli_connect("localhost", 'root', '', "glosowanie");
+                        $sql = mysqli_query($con, "SELECT * FROM uzytkownicy WHERE login = '" . $_SESSION["login"] . "'");
+                        $tab = mysqli_fetch_array($sql);
+                        echo "<span>Data utworzenia konta: " . $tab[4] . "</span>";
 
-                        } 
-                        if($fetch==0)
-                        {
-                            echo "<h2>Badź pierwszą osobą piszącą na stronie!</h2>";
-                            echo "<a href='dodaj.php' class='dodaj-link'><div class='dodaj'>Dodaj swój wpis</div></a>";
+                        $uzt_id = $tab[0];
+                        $sql = mysqli_query($con, "SELECT * FROM glosy WHERE id_uzyt=$uzt_id");
+                        $ile_postow = mysqli_num_rows($sql);
+                        echo "<span>Stworzyłeś: $ile_postow postów</span>"
+                        ?>
+                        <form method="POST" action="php/zdjecie.php" enctype="multipart/form-data">
+                            <label>
+                                Wyślij zdjęcie profilowe: <br> <br>
+                                <input type="file" name="file">
+                            </label>
+                            <br> <br>
+                            <input name="upload" type="submit">
+                            <input style="visibility: hidden;" type="text" name="back" value="profil.php">
+                        </form>
+                        <?php
+                        if (isset($_SESSION["user-error"])) {
+                            echo "<p class='error'>" . $_SESSION["user-error"] . "</p>";
+                            unset($_SESSION["user-error"]);
                         }
                         ?>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
+    </div>
 </body>
 
 </html>

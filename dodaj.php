@@ -1,6 +1,12 @@
 <?php
 session_start();
+if (!isset($_SESSION["login"])) {
+    $_SESSION["user-error"] = "Zaloguj się zanim dodasz wpis";
+    header("Location: loguj.php");
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -11,8 +17,10 @@ session_start();
     <title>Document</title>
     <link rel="stylesheet" href="style/scroller.css">
     <link rel="stylesheet" href="style/animations.css">
+    <link rel="stylesheet" href="style/loguj.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/bloki.css">
+    <link rel="stylesheet" href="style/dodaj.css">
     <script defer src="js/miniprofile.js"></script>
 </head>
 
@@ -71,45 +79,36 @@ session_start();
                     ?>
                 </div>
             </div>
+
             <div class="main">
-                <div class="glosowanie">
-                    <div class="request-link">
+                <section class="dodaj">
+                    <div class="dodaj-content">
+                        <div class="h2-content">
+                            <h2>Dodaj swój wpis</h2>
+                        </div>
+                        <form method="POST" action="php/wyslij.php">
+                            <label>
+                                Tytuł:
+                                <input type="text" name="tytul">
+                            </label>
+                            <label>
+                                Opis: <br>
+                                <textarea style="resize: vertical" rows="15" name="opis"></textarea>
+                            </label>
+                            <button type="submit">Wyślij</button>
 
-                        <?php
-                        $con = mysqli_connect('localhost', 'root', '', 'glosowanie');
-                        $zapytanie = mysqli_query($con, "SELECT * FROM glosy JOIN uzytkownicy ON uzytkownicy.id=glosy.id_uzyt ORDER BY polubienia DESC");
-                        $fetch = 0;
-                        if($zapytanie) {
-                            while ($wynik = mysqli_fetch_assoc($zapytanie)) {
-                                if ($wynik["prof_img"] == null) {
-                                    $wynik["prof_img"] = "anonym.png";
-                                }
-                                echo "<div class='request'>";
-                                echo "  <div class='reuqest-title'>";
-                                echo "      <img src='img/" . $wynik["prof_img"] . "' alt='Profile img' class='profile-img'>";
-                                echo "      <p>" . $wynik["nick"] . "</p>";
-                                echo "  </div>";
-                                echo "  <h2>" . $wynik["temat"] . "</h2>";
-                                echo "  <p class='opis'>" . $wynik["opis"] . "</p>";
-                                echo "  <div class='request-bottom'>";
-                                echo "      <p class='data'>" . $wynik["dodanie"] . "</p>";
-                                echo "      <p class='like'>" . $wynik["polubienia"] . "</p>";
-                                echo "  </div>";
-                                echo "</div>";
-                                $fetch=1;
+                            <?php
+                            if (isset($_SESSION["user-error"])) {
+                                echo "<p class='error'>" . $_SESSION["user-error"] . "</p>";
+                                unset($_SESSION["user-error"]);
                             }
-
-                        } 
-                        if($fetch==0)
-                        {
-                            echo "<h2>Badź pierwszą osobą piszącą na stronie!</h2>";
-                            echo "<a href='dodaj.php' class='dodaj-link'><div class='dodaj'>Dodaj swój wpis</div></a>";
-                        }
-                        ?>
+                            ?>
+                        </form>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
+    </div>
 </body>
 
 </html>

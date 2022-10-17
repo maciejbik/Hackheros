@@ -11,14 +11,20 @@
             $sql = mysqli_query($con,"SELECT * FROM uzytkownicy WHERE login='$login' AND hasło='$haslo'");
             if(mysqli_num_rows($sql))
             {
-                $sql = mysqli_query($con,"SELECT nick,prof_img FROM uzytkownicy WHERE login='$login' AND hasło='$haslo'");
+                $sql = mysqli_query($con,"SELECT nick,prof_img,login FROM uzytkownicy WHERE login='$login' AND hasło='$haslo'");
                 $_SESSION["zalogowany"] = true;
-                $_SESSION["nick"] = mysqli_fetch_row($sql)[0];
-                $_SESSION["prof_img"] = mysqli_fetch_row($sql)[1];
-                if(mysqli_fetch_row($sql)[1]==null)
+                $tab =  mysqli_fetch_array($sql);
+                $_SESSION["nick"] = $tab[0];
+                $_SESSION["login"] = $tab[2];
+                if(!isset($tab[1]) || empty($tab[1]))
                 {
                     $_SESSION["prof_img"]="img/anonym.png";
                 }
+                else
+                {
+                    $_SESSION["prof_img"] = $tab[1];
+                }
+                // echo $_SESSION["prof_img"];
                 header("Location: ../index.php");
             }
             else

@@ -40,14 +40,14 @@ body {
   top: -15px;
   left: -15px;
 }
+.panels .left .header .dodaj-link {
+  color: white;
+}
 .panels .left .header .dodaj {
   padding: 20px;
   background-color: #FF0054;
   transition: border-radius 200ms ease;
   margin-bottom: 20px;
-}
-.panels .left .header .dodaj a {
-  color: white;
 }
 .panels .left .header .dodaj:hover {
   border-radius: 20px;
@@ -185,4 +185,37 @@ body {
 .moved {
   transform: translateX(-58px);
   cursor: inherit;
+}
+
+.main .profil {
+  display: flex;
+  justify-content: center;
+}
+.main .profil .profil-content {
+  background-image: linear-gradient(white, white), repeating-linear-gradient(45deg, #150d35 0% 10%, #FF0054 10% 20%);
+  background-clip: content-box, border-box;
+  background-size: 300%;
+  -webkit-animation: border-rot 20s linear alternate infinite;
+          animation: border-rot 20s linear alternate infinite;
+  padding: 15px;
+  border-radius: 10px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .profil .profil-content form {
+  background-color: #150d35;
+  border-radius: 10px;
+  color: white;
+  margin: 10px;
+  padding: 20px;
+}
+.main .profil .profil-content h2 {
+  text-align: center;
+}
+.main .profil .profil-content img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
 }/*# sourceMappingURL=style.css.map */
